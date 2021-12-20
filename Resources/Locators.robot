@@ -10,5 +10,6 @@ ${cart_button}  xpath= //a[@href='/cart/']
 ${login}  xpath= //input[@id='login-name']
 ${password}  xpath= //input[@id='login-pwd']
 ${login_button}  xpath= //button[@id='submitLogin']
+${username}  xpath= //*[@class='username']
 ${error_message}  xpath = //*[@class='message error-message']
 
