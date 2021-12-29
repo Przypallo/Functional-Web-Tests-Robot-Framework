@@ -1,6 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
-Resource  /Resource/BasePage.robot
+Resource  BasePage.robot
 
 *** Variables ***
 ${login}  xpath= //input[@id='login-name']
