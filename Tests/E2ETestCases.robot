@@ -1,7 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
 Resource  ../Resources/Keywords.robot
-#Resource  ../Resources/Locators.robot
 
 *** Test Cases ***
 Valid login
@@ -39,9 +38,9 @@ Searching
 Adding to cart some product
     [Tags]  Adding
     [Documentation]  This test case search some product and add it to the shopping cart
-    Given User is in Notino site and is not logged in
-    When User clicks the searching bar
-    And User try to search for 'Calvin Klein Euphoria'
+    Given User is in Notino site and is logged in
+    When User try to search for 'Black Opium'
+    And User clicks the searching bar
     And User clicks the searching button
     And User clicks searching product
     Then User see the product info page
@@ -50,16 +49,13 @@ Adding to cart some product
     [Teardown]  Close Browser
 
 Changing some order options
-    [Tags]  Changing
-    [Documentation]  This test case change quantity of ordered items, take an insurance for shipping, select
-    ...              packaging as a gift wrap, cheking what happens after typing invalid discount code and finish order
+    [Tags]  Deleting
+    [Documentation]  This test case login into notino page and after that go to cart subpage and delete order
     Given User is in Notino site and is logged in
-    And User go to the shopping cart page
-    When User change the quantity (2) of ordered product
+    When User go to the shopping cart page
     And User clicks on insurance select
-    And User unselect ecological package and select a gift wrap
-    Then User input invalid discount code and see an error message
     And User goes to purchase page and finish its order
+    Then User see home page title
     [Teardown]  Close Browser
 
 
