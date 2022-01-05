@@ -1,6 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 Resource  ../Resources/Keywords.robot
+Suite Teardown  Close All Browsers
 
 *** Test Cases ***
 Valid login
@@ -12,7 +13,7 @@ Valid login
     And User inputs the password
     And User clicks the login button
     Then User see its username on mynotino page
-    [Teardown]  Close Browser
+    [Teardown]  Close All Browsers
 
 Invalid login
     [Tags]  Invalid
@@ -23,7 +24,7 @@ Invalid login
     And User inputs the invalid password
     And User clicks the login button
     Then User see an error message about incorrect log in credentials
-    [Teardown]  Close Browser
+    [Teardown]  Close All Browsers
 
 Searching
     [Tags]  Searching
@@ -33,7 +34,7 @@ Searching
     And User try to search for 'HUGO alive'
     And User clicks the searching button
     Then User see the searching results page
-    [Teardown]  Close Browser
+    [Teardown]  Close All Browsers
 
 Adding to cart some product
     [Tags]  Adding
@@ -46,7 +47,7 @@ Adding to cart some product
     Then User see the product info page
     When User clicks 'add to cart' button
     Then User see "add to cart" confirmation window
-    [Teardown]  Close Browser
+    [Teardown]  Close All Browsers
 
 Changing some order options
     [Tags]  Deleting
@@ -56,7 +57,7 @@ Changing some order options
     And User clicks on insurance select
     And User goes to purchase page and finish its order
     Then User see home page title
-    [Teardown]  Close Browser
+    [Teardown]  Close All Browsers
 
 
 
