@@ -9,7 +9,7 @@ Resource  ./Page_Objects/ResultsPage.robot
 *** Keywords ***
 #### Home Page ####
 User is in Notino site and is not logged in
-    Open browser  ${URL}  ${BROWSER}
+    Open Browser  ${URL}  ${BROWSER}
     Maximize Browser Window
     Title Should Be  Perfumy i kosmetyki online | Perfumeria iperfumy.pl → Notino
     Wait Until Element Is Visible  ${rodo}
@@ -22,9 +22,7 @@ User is in Notino site and is logged in
     Click Element  ${rodo}
     Click Element  ${my_account_button}
     Input Text  ${login}  validnotinologin@onet.pl
-    Sleep  2s
     Input Text  ${password}  Validpassword.1
-    Sleep  2s
     Click Element  ${login_button}
 
 #### Login test ####
@@ -68,22 +66,19 @@ User see the product info page
     Page Should Contain Element  ${add_to_cart_button}
 User clicks 'add to cart' button
     Click Button  ${add_to_cart_button}
+    Wait Until Element Is Visible  ${go_to_cart}
 User see "add to cart" confirmation window
-    Wait Until Element Is Visible  ${add_to_cart_confiration}
-    Sleep  2s
     Click Element  ${go_to_cart}
 
 #### CartPage Test ####
 User go to the shopping cart page
     Click Element  ${cart_button}
-    Sleep  2s
-User clicks on insurance select
     Wait Until Element Is Visible  ${shipping_insurance_select}
+User clicks on insurance select
     Click Element  ${shipping_insurance_select}
-    Sleep  2s
 User goes to purchase page and finish its order
     Click Element  ${deletion_button}
-    Sleep  2s
+    Wait Until Element Is Not Visible  ${deletion_button}
 User see home page title
     Title Should Be  Perfumy i kosmetyki online | Perfumeria iperfumy.pl → Notino
 
@@ -109,6 +104,7 @@ User clicks on 'Matka i dziecko'
     Click Element  ${mom_child_button}
 User clicks on 'Pielęgnacja włosów dziecka'
     Click Element  ${child_skin_care_button}
+
 ############## Checks #################
 User see 'Oczy' content
     Wait Until Element Is Visible  ${eyes_content}
